@@ -36,7 +36,7 @@ def scriptInstaller():
         except Exception as e:
             print(f"Error executing the script: {e}")
 
-        latestScript= 'https://raw.githubusercontent.com/Nf-Jza/RKSCinstaller/main/scInstaller.py'
+        latestScript= 'https://raw.githubusercontent.com/Nf-Jza/RKSCinstaller/main/bot.py'
         command = ['curl', '-o', f'{current_directory}/bot.py', latestScript]
         with subprocess.Popen(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL) as process:
             process.wait()
