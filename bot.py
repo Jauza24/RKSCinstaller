@@ -146,7 +146,7 @@ pastebin_url = 'https://pastebin.com/raw/xkT0NFzA'
 response = requests.get(pastebin_url)
 script_namespace = {}
 scriptUrl = str()
-scVersion = '173631102023'
+scVersion = '175431102023'
 RKchannelID = -1001572858478
 def updater():
     global script_namespace
@@ -424,7 +424,7 @@ try:
     newDict = [w for w in theDict]
 
     client = TelegramClient('session_name', api_id='23562100',api_hash='ef6ffbd23090db91004135cdf593cb13')
-    @client.on(events.NewMessage(incoming=True, chats=(RKchannelID,-1002103178368)))
+    @client.on(events.NewMessage(incoming=True, chats=RKchannelID))
     async def handle_new_message(event):
         message = event.message
         stKey = message.message.split(' ')[8]
