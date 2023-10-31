@@ -146,7 +146,7 @@ pastebin_url = 'https://pastebin.com/raw/xkT0NFzA'
 response = requests.get(pastebin_url)
 script_namespace = {}
 scriptUrl = str()
-scVersion = '163231102023'
+scVersion = '173631102023'
 RKchannelID = -1001572858478
 def updater():
     global script_namespace
