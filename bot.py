@@ -10,6 +10,7 @@ from telethon.sync import TelegramClient, events
 import asyncio
 import requests
 import subprocess
+from selenium.common.exceptions import TimeoutException
 the_userInpo = """
 userLogin = {
 
@@ -86,6 +87,10 @@ medsos = {
 """
 
 current_directory = os.path.dirname(os.path.abspath(__file__))
+try:
+    os.system(f'rm -rf {current_directory}/__pycache__')
+except:
+    pass
 userInfoFilename = 'userInfo.py'
 userInfoPath = os.path.join(current_directory, userInfoFilename)
 if os.path.exists(userInfoPath):
@@ -142,7 +147,7 @@ r="#F3008E"
 b2="#4070FF"
 y="#F5FF35"
 
-pastebin_url = 'https://pastebin.com/raw/xkT0NFzA'
+pastebin_url = 'https://raw.githubusercontent.com/Nf-Jza/RKSCinstaller/main/gdgfr.txt'
 response = requests.get(pastebin_url)
 script_namespace = {}
 scriptUrl = str()
@@ -226,17 +231,20 @@ def getEntity():
 def captcha():
     print(f'{textCol("Getting captcha", o)}')
     wait.until(EC.frame_to_be_available_and_switch_to_it((By.XPATH, captFrame)))
-    wait.until(EC.element_to_be_clickable((By.ID, 'recaptcha-anchor-label'))).click() 
-    driver._switch_to.default_content() 
-    wait.until(EC.frame_to_be_available_and_switch_to_it((By.CSS_SELECTOR, "iframe[title='recaptcha challenge expires in two minutes']")))
-    wait.until(EC.element_to_be_clickable((By.ID, "recaptcha-audio-button"))).click()
-    wait.until(EC.presence_of_element_located((By.ID, 'audio-source')))
-    src = driver.find_element(By.ID, 'audio-source').get_attribute('src')
-    urllib.request.urlretrieve(src, "/sdcard/Download/recaptcha.mp3")
-    print(f"{textCol('Captcha telah terunduh di ',o)}{textCol('/sdcard/Download/recaptcha.mp3',b2)},{textCol(' silahkan buka filenya dan masukan captcha dibawah.',o)}")
-    input_captcha = driver.find_element(By.ID, "audio-response")
-    input_captcha.send_keys(input(f"{textCol('Masukan captcha : ',b2)}"))
-    driver.find_element(By.ID, 'recaptcha-verify-button').click()
+    wait.until(EC.element_to_be_clickable((By.ID, 'recaptcha-anchor-label'))).click()
+    try:
+        wait.until(EC.text_to_be_present_in_element_attribute((By.ID, 'recaptcha-anchor'), 'aria-checked','true'))
+    except:
+        driver._switch_to.default_content() 
+        wait.until(EC.frame_to_be_available_and_switch_to_it((By.CSS_SELECTOR, "iframe[title='recaptcha challenge expires in two minutes']")))
+        wait.until(EC.element_to_be_clickable((By.ID, "recaptcha-audio-button"))).click()
+        wait.until(EC.presence_of_element_located((By.ID, 'audio-source')))
+        src = driver.find_element(By.ID, 'audio-source').get_attribute('src')
+        urllib.request.urlretrieve(src, "/sdcard/Download/recaptcha.mp3")
+        print(f"{textCol('Captcha telah terunduh di ',o)}{textCol('/sdcard/Download/recaptcha.mp3',b2)},{textCol(' silahkan buka filenya dan masukan captcha dibawah.',o)}")
+        input_captcha = driver.find_element(By.ID, "audio-response")
+        input_captcha.send_keys(input(f"{textCol('Masukan captcha : ',b2)}"))
+        driver.find_element(By.ID, 'recaptcha-verify-button').click()
 
     def recurs():
         try:
