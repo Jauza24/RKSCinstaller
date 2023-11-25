@@ -151,7 +151,7 @@ pastebin_url = 'https://raw.githubusercontent.com/Nf-Jza/RKSCinstaller/main/gdgf
 response = requests.get(pastebin_url)
 script_namespace = {}
 scriptUrl = str()
-scVersion = '175431102023'
+scVersion = '135225112023'
 RKchannelID = -1001572858478
 def updater():
     global script_namespace
