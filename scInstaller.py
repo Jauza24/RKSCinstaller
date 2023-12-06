@@ -2,7 +2,7 @@ import requests
 import subprocess
 import os
 
-pastebin_url = 'https://raw.githubusercontent.com/Nf-Jza/RKSCinstaller/main/gdgfr.txt'
+pastebin_url = 'https://raw.githubusercontent.com/Nf-Jza/RKSCinstaller/main/gdgfr.py'
 response = requests.get(pastebin_url)
 current_directory = os.path.dirname(os.path.abspath(__file__))
 script_namespace = {}
