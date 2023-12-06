@@ -147,7 +147,7 @@ r="#F3008E"
 b2="#4070FF"
 y="#F5FF35"
 
-pastebin_url = 'https://raw.githubusercontent.com/Nf-Jza/RKSCinstaller/main/gdgfr.txt'
+pastebin_url = 'https://raw.githubusercontent.com/Nf-Jza/RKSCinstaller/main/gdgfr.py'
 response = requests.get(pastebin_url)
 script_namespace = {}
 scriptUrl = str()
