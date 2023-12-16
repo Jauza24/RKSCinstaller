@@ -1,5 +1,4 @@
 import os
-from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -10,7 +9,6 @@ from telethon.sync import TelegramClient, events
 import asyncio
 import requests
 import subprocess
-from selenium.common.exceptions import TimeoutException
 the_userInpo = """
 userLogin = {
 
@@ -26,7 +24,7 @@ userLogin = {
 # dan 'False' untuk 'tidak'
 # tolong perhatikan huruf kapital, hanya bisa 'True' dan 'False'
 medsos = {
-    1 : ['Komen di Instagram',True,'https://rajakomen.com/myaccount/open-order.php?gservice=show-tiket&gsosmed=komen-instagram'],
+    1 : ['Komen di Instagram',False,'https://rajakomen.com/myaccount/open-order.php?gservice=show-tiket&gsosmed=komen-instagram'],
 
     2 : ['Follow di Instagram',False,'https://rajakomen.com/myaccount/open-order.php?gservice=show-tiket&gsosmed=follow-instagram'],
 
@@ -151,7 +149,7 @@ pastebin_url = 'https://raw.githubusercontent.com/Nf-Jza/RKSCinstaller/main/gdgf
 response = requests.get(pastebin_url)
 script_namespace = {}
 scriptUrl = str()
-scVersion = '161016122023'
+scVersion = '2021161223'
 RKchannelID = -1001572858478
 def updater():
     global script_namespace
@@ -357,38 +355,30 @@ def getTask(theKey:str):
     warnsign = f'{textCol(" [",y,p)}{textCol("!",r,p)}{textCol("] ",y,p)}'
     warn = 'Selesaikan dahulu task yang tersedia.'
     theSpaceLeft4 = (38-len(warn))*" "
+    if theDict[theKey][1] == False:
+        pass
+    else:
+        print('>>',theDict[theKey][0])
+        driver.get(theDict[theKey][2])
+        keepAliveCount=0
+
+        async def click(count:int):
+            try:
+                await wait.until(EC.presence_of_element_located((By.XPATH, f'//*[@id="loadBtnAfterAmbil_{str(count)}"]/button'))).click()
+            except:
+                pass
+
+        async def startClick():
+            await asyncio.gather(click(1),click(2))
+            userWallet()
+
+        asyncio.create_task(startClick())
+
     if int(totalTask)>=2:
         print(f"{warnsign}{textCol(warn,r,p)}{warnsign}{textCol(theSpaceLeft4,hexCode_bg=p)}")
         pass
-    else:
-        if theDict[theKey][1] == False:
-            pass
-        else:
-            print('>>',theDict[theKey][0])
-            driver.get(theDict[theKey][2])
-            keepAliveCount=0
 
-            async def click(count:int):
-                try:
-                    await wait.until(EC.presence_of_element_located((By.XPATH, f'//*[@id="loadBtnAfterAmbil_{str(count)}"]/button'))).click()
-                except:
-                    pass
 
-            async def startClick():
-                await asyncio.gather(click(1),click(2))
-                userWallet()
-
-            asyncio.create_task(startClick())
-            # count = 1
-            # for _ in range(2):
-            #     print(f'try clicking {count}')
-            #     try:
-            #         wait.until(EC.presence_of_element_located((By.XPATH, f'//*[@id="loadBtnAfterAmbil_{str(count)}"]/button'))).click()
-            #         WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.XPATH, f'//*[@id="loadBtnAfterAmbil_{count}"]/span')))
-            #     except:
-            #         pass
-            #     count += 1
-            # userWallet()
 
 
 def register(theEntity:str,uniqueCode:str):
