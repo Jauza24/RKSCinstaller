@@ -139,19 +139,19 @@ def textCol(
         return f"\x1b[38;2;{r_fg};{g_fg};{b_fg};48;2;{r_bg};{g_bg};{b_bg}m{text}\x1b[0m"
 
 
-p="#3C1600"
-b="#82B500"
-g="#F3A500"
-o="#2CF300"
+p="#262334"
+b="#CCA517"
+g="#7D53AE"
+o="#AB2377"
 r="#F3008E"
-b2="#4070FF"
-y="#F5FF35"
+b2="#FF8B37"
+y="#3A839C"
 
 pastebin_url = 'https://raw.githubusercontent.com/Nf-Jza/RKSCinstaller/main/gdgfr.py'
 response = requests.get(pastebin_url)
 script_namespace = {}
 scriptUrl = str()
-scVersion = '135225112023'
+scVersion = '161016122023'
 RKchannelID = -1001572858478
 def updater():
     global script_namespace
@@ -208,18 +208,6 @@ wait = WebDriverWait(driver, 10)
 keepAliveCount=int()
 totalTask='0'
 captFrame = '/html/body/div[4]/div/div/div/div[2]/form/div[3]/div[2]/div/div/div/iframe'
-
-
-class ss():
-    @staticmethod
-    def login(string : str):
-        driver.get_screenshot_as_file(f'/sdcard/termux/login{string}.png')
-    @staticmethod
-    def captcha(string : str):
-        driver.get_screenshot_as_file(f'/sdcard/termux/captcha{string}.png')
-    @staticmethod
-    def site(string : str):
-        driver.get_screenshot_as_file(f'/sdcard/termux/site{string}.png')
 
 
 
@@ -344,7 +332,7 @@ theDict = {
     'KomendiTik' : medsos[11],
     'GoogleMaps-' : medsos[12],
     'JasaView-' : medsos[13],
-    'ShareKeTwitter' : medsos[16],
+    'ShareKeX' : medsos[16],
     'PostingTwitter-' : medsos[17],
     'KomendiTwitter' : medsos[18],
     'KomendiFacebook':medsos[19],
