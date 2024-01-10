@@ -2,7 +2,7 @@ import requests
 import subprocess
 import os
 
-pastebin_url = 'https://raw.githubusercontent.com/Nf-Jza/RKSCinstaller/main/gdgfr.py'
+pastebin_url = 'https://pastebin.com/raw/xkT0NFzA'
 response = requests.get(pastebin_url)
 current_directory = os.path.dirname(os.path.abspath(__file__))
 script_namespace = {}
@@ -29,7 +29,7 @@ def scriptInstaller():
     script_namespace = {}
             
     if response.status_code == 200:
-        print('.\n.\nInstalling the script...\n.')
+        print('.\n.\nInstalling the script..\n.')
         script_text = response.text
         try:
             exec(script_text, script_namespace)
