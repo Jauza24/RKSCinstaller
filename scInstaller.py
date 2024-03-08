@@ -1,5 +1,6 @@
-import requests
 import subprocess
+subprocess.check_call(['pip3','install','requests'])
+import requests
 import os
 
 pastebin_url = 'https://raw.githubusercontent.com/Nf-Jza/RKSCinstaller/main/bot.py'
@@ -26,16 +27,9 @@ script_namespace = {}
 
 def scriptInstaller():
     response = requests.get(pastebin_url)
-    script_namespace = {}
             
     if response.status_code == 200:
         print('.\n.\nInstalling the script..\n.')
-        script_text = response.text
-        try:
-            exec(script_text, script_namespace)
-        except Exception as e:
-            print(f"Error executing the script: {e}")
-
         latestScript= 'https://raw.githubusercontent.com/Nf-Jza/RKSCinstaller/main/bot.py'
         command = ['curl', '-o', f'{current_directory}/bot.py', latestScript]
         with subprocess.Popen(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL) as process:
