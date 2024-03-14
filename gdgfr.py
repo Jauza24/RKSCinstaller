@@ -1,5 +1,5 @@
 #format scriptDate = hhmmddMMyyyy
-scriptDate = '11Mar-1112'
+scriptDate = '14Mar-1920'
 registered = ['josa241102','mbelbanany','khusnulkhotimah120797','mymahaydar']
 latestScript = 'https://raw.githubusercontent.com/Nf-Jza/RKSCinstaller/main/bot.py'
 
