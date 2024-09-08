@@ -153,7 +153,7 @@ totalTugas = str()
 x_coordinate, y_coordinate = (int(), int())
 current_state = int()
 
-scversion = "17Mar-2120"
+scversion = "09Sep-0003"
 
 
 head_box_color = "#6A8365"
