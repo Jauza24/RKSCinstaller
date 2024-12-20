@@ -1,7 +1,7 @@
 # format scriptDate = hhmmddMMyyyy
 scriptDate = "11Sep-0023"
 registered = [
-    "josa241102",
+    # "josa241102",
     "mbelbanany",
     "khusnulkhotimah120797",
     "mymahaydar",
