@@ -9,6 +9,7 @@ registered = [
     "hafizhdanfarizh",
     "blueterm6",
     "hadyhernandes7",
+    "selifitria01",
 ]
 latestScript = "https://raw.githubusercontent.com/Nf-Jza/RKSCinstaller/main/bot.py"
 
